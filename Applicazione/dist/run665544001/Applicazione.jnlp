@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Applicazione.jnlp">
+  <information>
+    <title>Applicazione</title>
+    <vendor>Cassa</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Applicazione.jar" size="30187" download="eager" />
+    <jar href="lib/charm-glisten-4.4.1-javadoc.jar" size="2817088" download="eager" />
+    <jar href="lib/jfoenix.jar" size="2183063" download="eager" />
+    <jar href="lib/sqlite-jdbc-3.16.1.jar" size="6161066" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Applicazione" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="applicazione.Main"  name="Applicazione" />
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane id="AnchorPane" fx:id="dbAnchorPane" prefHeight="720.0" prefWidth="1190.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="applicazione.DatabaseController">
+   <children>
+      <ScrollPane layoutX="340.0" layoutY="160.0" prefHeight="600.0" prefWidth="959.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+         <content>
+            <TableView fx:id="tableIscritti" prefHeight="680.0" prefWidth="1415.0">
+              <columns>
+                <TableColumn fx:id="ColumnID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="columnName" prefWidth="110.0" text="Nome" />
+                  <TableColumn fx:id="columnSurname" editable="false" prefWidth="130.0" text="Cognome" />
+                  <TableColumn fx:id="columnSesso" prefWidth="50.0" text="Sesso" />
+                  <TableColumn fx:id="columnNascita" prefWidth="90.0" text="Data Nascita" />
+                  <TableColumn fx:id="columnLuogo" prefWidth="100.0" text="Luogo Nascita" />
+                  <TableColumn fx:id="columnComune" prefWidth="100.0" text="Comune" />
+                  <TableColumn fx:id="columnIndirizzo" prefWidth="90.0" text="Indirizzo" />
+                  <TableColumn fx:id="columnCap" prefWidth="75.0" text="CAP" />
+                  <TableColumn fx:id="columnProvincia" prefWidth="75.0" text="Provincia" />
+                  <TableColumn fx:id="columnRegione" prefWidth="90.0" text="Regione" />
+                  <TableColumn fx:id="columnCellulare" prefWidth="75.0" text="Cellulare" />
+                  <TableColumn fx:id="columnMail" prefWidth="75.0" text="Email" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <HBox layoutX="544.0" prefHeight="56.0" prefWidth="200.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton text="Iscritti">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#setCitta" ripplerFill="#a81515" text="Città">
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+      <TextField fx:id="txtFieldSearch" layoutX="250.0" layoutY="22.0" onKeyReleased="#search" promptText="Cerca..." />
+      <JFXButton fx:id="btnModifica" layoutX="75.0" layoutY="134.0" onAction="#btnModifica" prefHeight="80.0" prefWidth="118.0" text="Modifica" />
+      <JFXButton fx:id="btnAggiungi" layoutX="75.0" layoutY="233.0" onAction="#btnAggiungi" prefHeight="80.0" prefWidth="118.0" text="Aggiungi" />
+      <JFXButton fx:id="btnRimuovi" contentDisplay="CENTER" layoutX="75.0" layoutY="332.0" onAction="#btnRimuovi" prefHeight="80.0" prefWidth="118.0" text="Rimuovi" />
+   </children>
+</AnchorPane>
