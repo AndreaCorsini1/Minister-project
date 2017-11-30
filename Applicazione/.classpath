@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/Applicazione.jar"/>
+	<classpathentry kind="lib" path="dist/lib/charm-glisten-4.4.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jfoenix.jar"/>
+	<classpathentry kind="lib" path="dist/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="lib" path="dist/run665544001/Applicazione.jar"/>
+	<classpathentry kind="lib" path="dist/run665544001/lib/charm-glisten-4.4.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="dist/run665544001/lib/jfoenix.jar"/>
+	<classpathentry kind="lib" path="dist/run665544001/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
