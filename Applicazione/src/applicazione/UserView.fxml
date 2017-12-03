@@ -13,8 +13,9 @@
 
 <AnchorPane id="AnchorPane" fx:id="dbAnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicazione.UserController">
    <children>
+   	  <TextField fx:id="txtFieldSearch" onKeyReleased="#search" promptText="Cerca nella tabella..." AnchorPane.leftAnchor="228.0" AnchorPane.topAnchor="20.0" />		
       <StackPane />
-      <ScrollPane layoutX="228.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0">
+      <ScrollPane layoutX="828.0" prefHeight="400.0" prefWidth="580.0" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0">
          <content>
             <TableView fx:id="tableUsers" onMouseClicked="#select" prefHeight="428.0" prefWidth="600.0">
               <columns>
@@ -26,7 +27,7 @@
             </TableView>
          </content>
       </ScrollPane>
-      <VBox prefHeight="468.0" prefWidth="184.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0">
+      <VBox prefHeight="468.0" prefWidth="184.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="100.0">
          <children>
             <TextField fx:id="textFieldId" maxWidth="171.0" minWidth="171.0" prefHeight="31.0" prefWidth="171.0" promptText="ID">
                <VBox.margin>
@@ -45,13 +46,17 @@
             </TextField>
             <JFXComboBox fx:id="comboBoxPermessi" promptText="Permessi">
                <VBox.margin>
-                  <Insets left="40.0" top="40.0" />
+                  <Insets left="10.0" top="30.0" />
                </VBox.margin>
             </JFXComboBox>
+            <JFXComboBox fx:id="comboBoxOperation" promptText="Seleziona Operazione">
+               <VBox.margin>
+                  <Insets left="10.0" top="40.0" />
+               </VBox.margin>
+            </JFXComboBox>             
          </children>
       </VBox>
-      <JFXComboBox fx:id="comboBoxOperation" promptText="Seleziona Operazione" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="540.0" />
-      <Button fx:id="btnExecute" layoutX="77.0" layoutY="627.0" mnemonicParsing="false" onAction="#execute" prefHeight="40.0" prefWidth="70.0" text="Esegui" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="627.0" />
-      <TextField fx:id="txtFieldSearch" onKeyReleased="#search" promptText="Cerca..." AnchorPane.leftAnchor="214.0" AnchorPane.topAnchor="20.0" />
+               <Button fx:id="btnExecute" mnemonicParsing="false" onAction="#execute" prefHeight="40.0" prefWidth="70.0" layoutX="80" layoutY="400" text="Esegui"/>     
+      
    </children>
 </AnchorPane>

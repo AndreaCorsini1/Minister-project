@@ -10,25 +10,27 @@
 <?import javafx.scene.layout.HBox?>
 
 
-<AnchorPane id="AnchorPane" fx:id="dbAnchorPane" prefHeight="720.0" prefWidth="1190.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="applicazione.DatabaseController">
+<AnchorPane id="AnchorPane" fx:id="dbAnchorPane" prefHeight="720.0" prefWidth="1190.0" xmlns:fx="http://javafx.com/fxml/1" 
+									xmlns="http://javafx.com/javafx/8.0.141" fx:controller="applicazione.DatabaseController">
    <children>
-      <ScrollPane layoutX="340.0" layoutY="160.0" prefHeight="600.0" prefWidth="959.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+      <ScrollPane layoutX="340.0" layoutY="160.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="60.0" 
+      							AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
          <content>
-            <TableView fx:id="tableIscritti" prefHeight="680.0" prefWidth="1415.0">
+            <TableView fx:id="tableIscritti" prefHeight="680.0" prefWidth="1335.0">
               <columns>
-                <TableColumn fx:id="ColumnID" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="columnName" prefWidth="110.0" text="Nome" />
+              	  <TableColumn fx:id="ColumnID" prefWidth="75.0" text="ID" />
+               	  <TableColumn fx:id="columnName" prefWidth="110.0" text="Nome" />
                   <TableColumn fx:id="columnSurname" editable="false" prefWidth="130.0" text="Cognome" />
                   <TableColumn fx:id="columnSesso" prefWidth="50.0" text="Sesso" />
                   <TableColumn fx:id="columnNascita" prefWidth="90.0" text="Data Nascita" />
                   <TableColumn fx:id="columnLuogo" prefWidth="100.0" text="Luogo Nascita" />
                   <TableColumn fx:id="columnComune" prefWidth="100.0" text="Comune" />
-                  <TableColumn fx:id="columnIndirizzo" prefWidth="90.0" text="Indirizzo" />
+                  <TableColumn fx:id="columnIndirizzo" prefWidth="140.0" text="Indirizzo" />
                   <TableColumn fx:id="columnCap" prefWidth="75.0" text="CAP" />
                   <TableColumn fx:id="columnProvincia" prefWidth="75.0" text="Provincia" />
                   <TableColumn fx:id="columnRegione" prefWidth="90.0" text="Regione" />
-                  <TableColumn fx:id="columnCellulare" prefWidth="75.0" text="Cellulare" />
-                  <TableColumn fx:id="columnMail" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="columnCellulare" prefWidth="105.0" text="Cellulare" />
+                  <TableColumn fx:id="columnMail" prefWidth="190.0" text="Email" />
               </columns>
             </TableView>
          </content>

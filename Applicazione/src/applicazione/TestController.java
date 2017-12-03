@@ -21,7 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javafx.scene.input.SwipeEvent;
 import javafx.stage.Stage;
 
 
@@ -63,8 +62,8 @@ public class TestController {
     void handleButton(ActionEvent event) throws IOException {
         
         Parent home_page_parent =  FXMLLoader.load(getClass().getResource("MainAppView.fxml"));
-            Scene home_page_scene = new Scene(home_page_parent);
-            Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         
         
         if (isValidCredentials())
@@ -99,8 +98,8 @@ public class TestController {
         try {
 	            stmt = c.createStatement();
 	            
-            try (ResultSet rs = stmt.executeQuery( "SELECT * FROM User WHERE USERNAME= " + "'" + textName.getText() + "'" 
-                    + " AND Password= " + "'" + passwordField.getText() + "'")) {
+            try (ResultSet rs = stmt.executeQuery( "SELECT * FROM User WHERE USERNAME= '" + textName.getText() + "'" 
+                    + " AND Password= '" + passwordField.getText() + "'")) {
                 while ( rs.next() ) {
                     if (rs.getString("Username") != null && rs.getString("Password") != null) {
                         String  username = rs.getString("Username");
@@ -111,7 +110,7 @@ public class TestController {
                         let_in = true;
                     }
                 }
-                    rs.close();
+                rs.close();
 	            stmt.close();
             }      
             } catch ( Exception e ) {

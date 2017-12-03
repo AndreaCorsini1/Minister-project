@@ -96,36 +96,9 @@ public class DatabaseController {
     private PreparedStatement pst;
     
     private ResultSet rs;
-
-    
-    private String pattern = "dd/MM/yyyy";
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-    
+       
     private Connection c;
-    
-    
-
-    private Main main;
- 
-
-    @FXML
-    void setCitta(ActionEvent event) {
-
-    }
-
-    
-    @FXML
-    void btnAggiungi(ActionEvent event) {
-
-    }
-
-    
-
-    @FXML
-    void btnRimuovi(ActionEvent event) {
-
-    }
-    
+   
     
     @FXML
     void initialize() {
@@ -147,21 +120,101 @@ public class DatabaseController {
 		columnMail.setCellValueFactory(new PropertyValueFactory<Iscritto, String>("Email"));
 		
                 
-                //      vincolo per gli utenti non autorizzati       
+        //Vincolo per gli utenti non autorizzati       
         if(TestController.persona.getPermessi().equals("Ospite")){
         	btnAggiungi.setDisable(true);
-                btnModifica.setDisable(true);
-                btnRimuovi.setDisable(true);
-        	
-                
-                
+            btnModifica.setDisable(true);
+            btnRimuovi.setDisable(true);
         }
             processUpdate();
     }
     
+
+    @FXML
+    void setCitta(ActionEvent event) {
+
+    }
+
+  
+    @FXML
+    void btnAggiungi(ActionEvent event) {
+    	 try {
+             // Load the fxml file and create a new stage for the popup dialog.
+             FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(Main.class.getResource("EditDialog.fxml"));
+             AnchorPane page = (AnchorPane) loader.load();
+
+             // Create the dialog Stage.
+             Stage dialogStage = new Stage();
+             dialogStage.setTitle("Aggiungi Iscritto");
+             dialogStage.initModality(Modality.WINDOW_MODAL);
+             
+             Scene scene = new Scene(page);
+             dialogStage.setScene(scene);
+
+             EditDialogController controller = loader.getController();
+             controller.setDialogStage(dialogStage);
+
+             // Show the dialog and wait until the user closes it
+             dialogStage.showAndWait();
+
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+    	 
+    	 //Update the view
+         processUpdate();
+
+    }
+
     
-    //	AGGIORNA
-//  ripulisce la tabella e l'aggiorna con i dati pescati dal database
+    @FXML
+    void btnRimuovi(ActionEvent event) {
+        Iscritto selectedIscritto = tableIscritti.getSelectionModel().getSelectedItem();
+        
+        try{
+	        String SQL = "DELETE FROM Iscritti WHERE ID=" + selectedIscritto.getID();
+	        PreparedStatement ps = c.prepareStatement(SQL);
+	        
+	        ps.executeUpdate();
+            System.out.println("Successfully delete");
+            
+       	    //Update the view
+            processUpdate();
+
+        } catch(Exception e){
+        	e.printStackTrace();
+        }
+
+    }
+    
+    
+    @FXML
+    private void btnModifica() throws SQLException {
+        Iscritto selectedIscritto = tableIscritti.getSelectionModel().getSelectedItem();
+        
+        if (selectedIscritto != null) {
+            
+            Boolean okClicked = showPersonEditDialog(selectedIscritto);
+       	    //Update the view
+            processUpdate();
+      
+        } else {
+            //Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+
+            alert.showAndWait();
+        }
+    }
+      
+    
+    /**	AGGIORNA:
+    *	ripulisce la tabella e l'aggiorna con i dati pescati dal database
+    */
     private void processUpdate(){
     	tableIscritti.getItems().clear();
     	
@@ -183,11 +236,12 @@ public class DatabaseController {
     	} 
     }
     
-    //SELEZIONA
-//  restituisce l'id dell'ordine clickato sulla tabella e ne riempie i textfield
+    /**	SELEZIONA:
+	*	restituisce l'id dell'ordine clickato sulla tabella e ne riempie i textfield
+	*/
     @FXML
    private void select() {
-//   	restituisce l'id 
+
     	ObservableList<Iscritto> selectOrd;
     	selectOrd = tableIscritti.getSelectionModel().getSelectedItems();
     	String pid=(selectOrd.get(0).getID());  //questa riga da problemi!!!
@@ -195,8 +249,9 @@ public class DatabaseController {
     }
    
    
-   //CERCA
-//  ricompila la tabella in base al valore inserito in txtfieldSearch
+    /**	CERCA:
+	*	ricompila la tabella in base al valore inserito in txtfieldSearch
+	*/
     @FXML
     private void search(){
     	tableIscritti.getItems().clear();
@@ -233,33 +288,10 @@ public class DatabaseController {
     	} 
     }
     
-    /**
-     * Called when the user clicks the edit button. Opens a dialog to edit
-     * details for the selected person.
+    /**	EDIT:
+     * 	Called when the user clicks the edit button. Opens a dialog to edit
+     * 	details for the selected person.
      */
-    @FXML
-    private void btnModifica() throws SQLException {
-        Iscritto selectedIscritto = tableIscritti.getSelectionModel().getSelectedItem();
-        
-        if (selectedIscritto != null) {
-            
-            Boolean okClicked = showPersonEditDialog(selectedIscritto);
-            processUpdate();
-       
-
-
-        } else {
-            // Nothing selected.
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
-
-            alert.showAndWait();
-        }
-    }
-    
      public boolean showPersonEditDialog(Iscritto iscritto) throws SQLException {
         try {
             // Load the fxml file and create a new stage for the popup dialog.

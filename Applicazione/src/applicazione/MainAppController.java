@@ -73,20 +73,20 @@ public class MainAppController implements Initializable{
 								try {
 									AnchorPane superUtente = FXMLLoader.load(getClass().getResource("UserView.fxml"));
 									setNode(superUtente);
-									} catch (IOException e1) {
+								} catch (IOException e1) {
 										e1.printStackTrace();
 									}                         
-                                	break;
+                                break;
                                 	
                             case ("statisticsBtn"):
                                 drawer.open();
 								try {
 									AnchorPane statistics = FXMLLoader.load(getClass().getResource("StatisticsView.fxml"));
 									setNode(statistics);
-									} catch (IOException e1) {
+								} catch (IOException e1) {
 										e1.printStackTrace();
 									}                         
-                                	break;
+                                break;
                                 
                              case ("anagraficaBtn"):
                             	drawer.open();
