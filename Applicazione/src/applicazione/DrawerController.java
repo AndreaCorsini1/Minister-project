@@ -27,6 +27,12 @@ public class DrawerController {
 
     @FXML
     private Button logout;
+    
+    @FXML
+    private ImageView GD;
+    
+    @FXML
+    private ImageView iconHome;
 
     @FXML
     void logout(ActionEvent event) {

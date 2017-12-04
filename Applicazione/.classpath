@@ -9,6 +9,8 @@
 	<classpathentry kind="lib" path="dist/run665544001/lib/charm-glisten-4.4.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="dist/run665544001/lib/jfoenix.jar"/>
 	<classpathentry kind="lib" path="dist/run665544001/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/fontawesomefx-8.9.jar"/>
+	<classpathentry kind="lib" path="dist/lib/fontawesomefx-fontawesome-4.7.0-5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

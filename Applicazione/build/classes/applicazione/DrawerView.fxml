@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" xmlns="http://javafx.com/javafx/8.0.141" 
 						xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicazione.DrawerController">
@@ -13,9 +14,25 @@
             <Image url="images/LogoGDTDC.jpg"> </Image>
          </image>
       </ImageView>
-      <Button fx:id="homeBtn" accessibleText="homeBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Home" />
-      <Button accessibleText="usersBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Users" />
-      <Button accessibleText="anagraficaBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Anagrafica" />
-      <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" prefHeight="100.0" prefWidth="200.0" text="Logout" />
+      <Button fx:id="homeBtn" accessibleText="homeBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Home">
+		  <graphic>
+				<FontAwesomeIconView glyphName="HOME" size="30"></FontAwesomeIconView>	
+		  </graphic>
+      </Button>
+      <Button accessibleText="usersBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Users">
+          <graphic>
+				<FontAwesomeIconView glyphName="USERS" size="30"></FontAwesomeIconView>	
+		  </graphic>
+	  </Button>
+      <Button accessibleText="anagraficaBtn" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Anagrafica">
+      	  <graphic>
+				<FontAwesomeIconView glyphName="DATABASE" size="30"></FontAwesomeIconView>	
+		  </graphic>
+      </Button>
+      <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" prefHeight="100.0" prefWidth="200.0" text="Logout">
+       	  <graphic>
+				<FontAwesomeIconView glyphName="SIGN_OUT" size="30"></FontAwesomeIconView>	
+		  </graphic>
+      </Button>
    </children>
 </VBox>
