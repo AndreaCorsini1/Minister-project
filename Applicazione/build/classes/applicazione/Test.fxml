@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,6 +21,21 @@
             <PasswordField fx:id="passwordField" layoutX="195.0" layoutY="165.0" promptText="Password" />
             <Button fx:id="button" layoutX="202.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="152.0" text="Submit" />
            
+            <MenuBar prefHeight="0.0" prefWidth="601.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleAbout" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            
          </children>
       </Pane>
    </children>

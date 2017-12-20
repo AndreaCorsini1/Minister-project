@@ -10,12 +10,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -57,6 +59,28 @@ public class TestController {
 
     
     public static User persona;
+    
+     @FXML
+    void handleClose(ActionEvent event) {
+        
+        Platform.exit();
+
+    }
+    
+     @FXML
+    void handleAbout(ActionEvent event) {
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("About");
+        alert.setHeaderText("About the Application");
+        
+        String s = "Questa è un'applicazione per la gestione di un'anagrafica di iscritti"
+                + "ad un'associazione. [I dati vengono salvati in un Database SQLLite]";
+        
+        alert.setContentText(s);
+        alert.show();
+
+    }
     
      @FXML
     void handleButton(ActionEvent event) throws IOException {
